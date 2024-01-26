@@ -25,30 +25,38 @@
         <div class="main-content">
             <h1>Description</h1>
             <div class="desc">
-                <div class="wonderland">
+                <div class="ini">
+                    <p>Hover a pointer to see description!</p>
+                </div>
+                <div class="tabcontent" id="area1">
                     <h3>Canada's Wonderland</h3>
                     <h5>Vaughan, ON L6A 1S6</h5>
                     <p>Massive amusement park with some 200 attractions, rides including roller coasters & a water park!</p>
                 </div>            
-                <div class="metro">
+                <div class="tabcontent" id="area2">
                     <h3>Metro</h3>
                     <h5>656 Eglinton Ave E, Toronto, ON M4P 1P1</h5>
                     <p>Lost in Toronto? Well, there's a familiar grocery store in the corner!</p>
                 </div>
-                <div class="sushi">
+                <div class="tabcontent" id="area3">
                     <h3>Sushi by K</h3>
                     <h5>874 Eglinton Ave E, East York, ON M4G 2L1</h5>
                     <p>Some very good food at a very affordable price!</p>
                 </div>
-                <div class="yorku">
+                <div class="tabcontent" id="area4">
                     <h3>YorkU Glendon</h3>
                     <h5>2275 Bayview Ave, North York, ON M4N 3M6</h5>
                     <p>A very beautiful and big campus! Must visit</p>
                 </div>
-                <div class="ferry">
+                <div class="tabcontent" id="area5">
                     <h3>Jack Layton Ferry Terminal</h3>
                     <h5>9 Queens Quay W, Toronto, ON M5J 2H3</h5>
                     <p>Take a small "cruise" to an island! You can even go canoeing</p>
+                </div>
+                <div class="tabcontent" id="area6">
+                    <h3>CN Tower</h3>
+                    <h5>290 Bremner Blvd, Toronto, ON M5V 3L9</h5>
+                    <p>An iconic tower local to Toronto!</p>
                 </div>
             </div>
         </div>
@@ -56,24 +64,12 @@
             <!-- <iframe src="https://www.google.com/maps/d/embed?mid=1efWuAfKDQtAbbLfgT-_UDbtTTD1J20g&ehbc=2E312F" width="640" height="480"></iframe> -->
             <img src="./map.png" width="" usemap="#map">
             <map name="map">
-                <div title="Canada's Wonderland" class="A">
-                    <area href="" shape="circle" coords="878,417,19">
-                </div>
-                <div title="Metro Grocerie store" class="B">
-                    <area href="" shape="circle" coords="1050,614,19">
-                </div>
-                <div title="Sushi by K" class="C">
-                    <area href="" shape="circle" coords="1078,620,19">
-                </div>
-                <div title="YorkU" class="D">
-                    <area href="" shape="circle" coords="1054,598,25">
-                </div>
-                <div title="Jack Layton Ferry Terminal" class="E">
-                    <area href="" shape="circle" coords="1075,718,19">
-                </div>
-                <div title="CN Tower" class="F">
-                    <area href="" shape="circle" coords="1041,730,20">
-                </div>
+                <area href="" title="Canada's Wonderland" alt="Canada's wonderland" shape="circle" coords="878,417,19" onmouseover="openDescription(event,'area1')">
+                <area href="" title="Metro Grocerie store" alt="Metro Grocerie store" shape="circle" coords="1050,614,19" onmouseover="openDescription(event,'area2')">
+                <area href="" title="Sushi by K" alt="Sushi by K" shape="circle" coords="1078,620,19" coords="1050,614,19" onmouseover="openDescription(event,'area3')">
+                <area href="" title="YorkU" alt="YorkU" shape="circle" coords="1054,598,25" onmouseover="openDescription(event,'area4')">
+                <area href="" title="Jack Layton Ferry Terminal" alt="Jack Layton Ferry Terminal" shape="circle" coords="1075,718,19" onmouseover="openDescription(event,'area5')">
+                <area href="" title="CN Tower" alt="CN Tower" shape="circle" coords="1041,730,20" onmouseover="openDescription(event,'area6')">
             </map>
         </div>
         <div class="footer">
@@ -84,4 +80,15 @@
     </div>
 
 </body>
+<script>
+    function openDescription(Ev, Area){
+        var i, tabcontent;
+        tabcontent=document.getElementsByClassName('tabcontent');
+        for (i=0;i<tabcontent.length;i++){
+            tabcontent[i].style.display="none";
+        }
+        document.getElementById(Area).style.display="block";
+        Ev.currentTarget.className+="active";
+    }
+</script>
 </html>
